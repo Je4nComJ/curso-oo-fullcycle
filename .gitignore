@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Build artifacts
+/build
+/dist
+/public # Depending on project setup, might need adjustment
+/*.js     # Ignore all .js files in the root, typically generated from .ts
+!*.config.js # Do not ignore config files like next.config.js, etc.
+/*.js.map # Ignore sourcemap files in the root
+
+# Testing and coverage
+coverage/
+.nyc_output/
+lib-cov/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor/IDE-specific files
+.vscode/ # Optional, ignore VS Code settings
+.idea/   # Ignore WebStorm/IntelliJ settings
+.DS_Store # macOS system files
+*.swp # vim temporary files
