@@ -29,14 +29,6 @@ class Address{
     ) {}
 }
 
-class PaymentPix{
-    constructor(
-        public id: string,
-        public amount: number,
-        public date : Date
-    ) {}
-}
-
 class Sale {
     public id: string;
     constructor(
@@ -54,11 +46,24 @@ class Sale {
     }
 }
 
+abstract class Payment {
+    constructor(
+        public amount: number,
+        public date : Date
+    ) {}
+}
+
+class PaymentPix extends Payment {}
+class PaymentCreditCard extends Payment {}
+class PaymentBankSlip extends Payment {}
+class PaymentBoleto extends Payment {}
+class PaymentCash extends Payment {}
+
 const sale = new Sale(
     "Sale of electronics",
     new Client(1, "John Doe", "john.doe@example.com", "12345678901"),
     new Address("123", "Apt 4B", "New York", "NY"),
-    new PaymentPix("pix_key_123", 100.0, new Date()),
+    new PaymentPix(100.0, new Date()),
     [
         { product: new Product(1, "Laptop", 1000), quantity: 1 }
     ]
