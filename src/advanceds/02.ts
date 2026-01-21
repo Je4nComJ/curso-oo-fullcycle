@@ -15,13 +15,20 @@ class CpfValueObject {
     }
 }
 
+enum UserStatus {
+    ACTIVE = 'active',
+    INACTIVE = 'inactive',
+    BLOCKED = 'blocked'
+}
+
 class User{
     constructor(
         public id: string,
         public name: string, 
         public email: string,
         public cpf: CpfValueObject,
-        public password: string
+        public password: string,
+        public status: UserStatus = UserStatus.ACTIVE
     ) {}
 }
 
@@ -30,5 +37,6 @@ const user = new User(
     'John Doe',
     'john.doe@example.com',
     new CpfValueObject('123.456.789-01'),
-    'password123'
+    'password123',
+    UserStatus.ACTIVE
 );
